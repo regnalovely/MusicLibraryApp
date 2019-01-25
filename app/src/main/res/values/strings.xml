@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FirstApp</string>
+    <string name="launchPrompt">Record</string>
+    <string name="readText">Lire</string>
+    <string name="textApp" />
+    <string name="textOutput" />
+    <string name="displayMusic">Voir les musiques</string>
+    <string name="textMusic" />
+</resources>
