@@ -1,10 +1,15 @@
 package fr.dev.apptwo;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.media.MediaMetadataRetriever;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -44,6 +49,7 @@ public class MusicAdapter extends BaseAdapter {
         //get title and artist views
         TextView songView = (TextView)musicLayout.findViewById(R.id.music_titre);
         TextView artistView = (TextView)musicLayout.findViewById(R.id.music_artiste);
+        ImageView imageAlbum = (ImageView)musicLayout.findViewById(R.id.music_image);
 
         //get song using position
         Music currentMusic = musics.get(position);
@@ -51,6 +57,20 @@ public class MusicAdapter extends BaseAdapter {
         //get title and artist strings
         songView.setText(currentMusic.getTitre());
         artistView.setText(currentMusic.getArtiste());
+
+        //set image's song
+        MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+        mediaMetadataRetriever.setDataSource(currentMusic.getImage());
+        try{
+            byte[] art = mediaMetadataRetriever.getEmbeddedPicture();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inSampleSize = 2;
+            Bitmap image = BitmapFactory.decodeByteArray(art, 0, art.length, options);
+            imageAlbum.setImageBitmap(image);
+
+        } catch (Exception e){
+            imageAlbum.setImageResource(R.drawable.music_cover);
+        }
 
         //set position as tag
         musicLayout.setTag(position);

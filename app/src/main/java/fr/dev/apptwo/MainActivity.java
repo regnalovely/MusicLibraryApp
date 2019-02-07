@@ -10,6 +10,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -212,12 +213,15 @@ public class MainActivity extends AppCompatActivity implements MediaPlayerContro
                     (android.provider.MediaStore.Audio.Media._ID);
             int artistColumn = musicCursor.getColumnIndex
                     (android.provider.MediaStore.Audio.Media.ARTIST);
+            int columnIndex = musicCursor.getColumnIndexOrThrow(MediaStore.Audio.Media.DATA);
+
             //add songs to list
             do {
+                String imagePath = musicCursor.getString(columnIndex);
                 long thisId = musicCursor.getLong(idColumn);
                 String thisTitle = musicCursor.getString(titleColumn);
                 String thisArtist = musicCursor.getString(artistColumn);
-                musicList.add(new Music(thisId, thisTitle, thisArtist));
+                musicList.add(new Music(thisId, thisTitle, thisArtist, imagePath));
             }
             while (musicCursor.moveToNext());
         }
