@@ -1,24 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:onClick="musicSelected"
-    android:padding="5dp"
-    >
+    android:padding="5dp">
 
-    <TextView
-        android:id="@+id/music_titre"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorSecondary"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="54dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/music_artiste"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorSecondaryDark"
-        android:textSize="18sp" />
+        <ImageView
+            android:id="@+id/music_pochette"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:contentDescription="@string/imagine" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/music_titre"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textColor="@color/colorSecondary"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/music_artiste"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:text="@string/artiste"
+            android:textColor="@color/colorSecondaryDark"
+            android:textSize="18sp" />
+    </LinearLayout>
+
 </LinearLayout>
