@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">AppTwo</string>
+    <string name="title">TITLE</string>
+    <string name="artiste">Artiste</string>
+    <string name="imagine">IMAGINE</string>
+    <string name="recherche" />
+    <string name="textOutput" />
+    <string name="icon" />
 </resources>

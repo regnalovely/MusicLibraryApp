@@ -5,12 +5,204 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
     tools:context=".MainActivity">
 
-    <ListView
-        android:id="@+id/music_list"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/textOutput"
+            android:layout_width="318dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="@string/recherche"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:text="@string/textOutput"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/searchIcon"
+            android:layout_width="45dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="8dp"
+            android:contentDescription="@string/icon"
+            app:layout_constraintBottom_toBottomOf="@+id/textOutput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textOutput"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@android:drawable/ic_menu_search" />
+    </LinearLayout>
+    <android.support.v7.widget.CardView
+        android:id="@+id/btnRecord"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        app:cardCornerRadius="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/displayMusic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textOutput">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="43dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/mic"
+            tools:layout_editor_absoluteX="92dp"
+            tools:layout_editor_absoluteY="91dp" />
+    </android.support.v7.widget.CardView>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </ListView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/displayMusic"
+            android:layout_width="368dp"
+            android:layout_height="149dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnRecord">
+
+            <ImageView
+                android:id="@+id/musicImageView"
+                android:layout_width="414dp"
+                android:layout_height="234dp"
+                app:srcCompat="@drawable/principale" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/musicCardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardBackgroundColor="?attr/actionMenuTextColor">
+
+                <TextView
+                    android:id="@+id/musicTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/pandaImage"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="VOIR TOUS LES TITRES"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/displayAlbum"
+            android:layout_width="184dp"
+            android:layout_height="161dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="12dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/displayMusic"
+            app:layout_constraintTop_toBottomOf="@+id/musicTextView">
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/albumCardView"
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                app:cardBackgroundColor="?attr/actionMenuTextColor">
+
+                <TextView
+                    android:id="@+id/albumTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/pandaImage"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="ALBUMS"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </android.support.v7.widget.CardView>
+
+            <ImageView
+                android:id="@+id/albumImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:cropToPadding="true"
+                android:scaleType="centerCrop"
+                android:visibility="visible"
+                app:srcCompat="@drawable/album" />
+
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/displayArtist"
+            android:layout_width="178dp"
+            android:layout_height="162dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            app:cardElevation="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/musicTextView"
+            app:layout_constraintVertical_bias="0.0">
+
+            <ImageView
+                android:id="@+id/artistImageView"
+                android:layout_width="194dp"
+                android:layout_height="200dp"
+                app:srcCompat="@drawable/artiste" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/artistCardView"
+                android:layout_width="match_parent"
+                android:layout_height="79dp"
+                app:cardBackgroundColor="?attr/actionMenuTextColor">
+
+                <TextView
+                    android:id="@+id/artistTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignBottom="@+id/pandaImage"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:text="ARTISTES"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp" />
+            </android.support.v7.widget.CardView>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+
 </LinearLayout>
